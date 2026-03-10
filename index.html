@@ -1,0 +1,417 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title data-i18n="meta.title">Elena Voss — Writer & Sculptor</title>
+  <meta name="description" data-i18n="meta.description" content="Portfolio of Elena Voss — short story writer and sculptor." />
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="Elena Voss — Writer & Sculptor" />
+  <meta property="og:type" content="website" />
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Inter:wght@300;400;500;600&family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&display=swap"
+    rel="stylesheet"
+  />
+
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+  <!-- ============================================================
+       NAVIGATION
+  ============================================================ -->
+  <nav class="nav" id="nav">
+    <div class="nav__inner">
+      <a href="#hero" class="nav__logo">EV</a>
+
+      <ul class="nav__links">
+        <li><a href="#stories"  class="nav__link" data-i18n="nav.stories">Stories</a></li>
+        <li><a href="#sculpture" class="nav__link" data-i18n="nav.sculpture">Sculpture</a></li>
+        <li><a href="#about"    class="nav__link" data-i18n="nav.about">About</a></li>
+        <li><a href="#contact"  class="nav__link" data-i18n="nav.contact">Contact</a></li>
+      </ul>
+
+      <button class="lang-toggle" id="langToggle" aria-label="Toggle language">
+        <span class="lang-toggle__active" id="langLabel">EN</span>
+        <span class="lang-toggle__divider">/</span>
+        <span class="lang-toggle__other" id="langOther">ES</span>
+      </button>
+
+      <button class="nav__hamburger" id="hamburger" aria-label="Open menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+
+    <!-- Mobile Menu -->
+    <div class="nav__mobile" id="mobileMenu">
+      <ul class="nav__mobile-links">
+        <li><a href="#stories"   class="nav__link" data-i18n="nav.stories">Stories</a></li>
+        <li><a href="#sculpture" class="nav__link" data-i18n="nav.sculpture">Sculpture</a></li>
+        <li><a href="#about"     class="nav__link" data-i18n="nav.about">About</a></li>
+        <li><a href="#contact"   class="nav__link" data-i18n="nav.contact">Contact</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- ============================================================
+       HERO
+  ============================================================ -->
+  <section class="hero" id="hero">
+    <div class="hero__bg">
+      <div class="hero__grain"></div>
+      <div class="hero__gradient"></div>
+    </div>
+
+    <div class="hero__content">
+      <p class="hero__eyebrow" data-i18n="hero.eyebrow">Writer · Sculptor</p>
+      <h1 class="hero__name">Elena Voss</h1>
+      <p class="hero__tagline" data-i18n="hero.tagline">
+        Stories carved from silence.<br />Sculptures breathing with weight.
+      </p>
+      <div class="hero__cta">
+        <a href="#stories"   class="btn btn--primary"  data-i18n="hero.cta.stories">Explore Stories</a>
+        <a href="#sculpture" class="btn btn--ghost"    data-i18n="hero.cta.sculpture">View Sculpture</a>
+      </div>
+    </div>
+
+    <div class="hero__scroll-hint">
+      <span class="hero__scroll-line"></span>
+      <span class="hero__scroll-label" data-i18n="hero.scroll">scroll</span>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       SHORT STORIES
+  ============================================================ -->
+  <section class="section stories" id="stories">
+    <div class="container">
+      <div class="section__header">
+        <span class="section__label" data-i18n="stories.label">Short Fiction</span>
+        <h2 class="section__title" data-i18n="stories.title">Short Stories</h2>
+        <p class="section__subtitle" data-i18n="stories.subtitle">
+          Intimate worlds built in brief spaces — where every word earns its place.
+        </p>
+      </div>
+
+      <div class="stories__grid" id="storiesGrid">
+
+        <!-- Story 1 -->
+        <article class="story-card" data-story="1">
+          <div class="story-card__number">01</div>
+          <div class="story-card__body">
+            <span class="story-card__tag" data-i18n="story1.tag">Memory / Loss</span>
+            <h3 class="story-card__title" data-i18n="story1.title">The Weight of Salt</h3>
+            <p class="story-card__excerpt" data-i18n="story1.excerpt">
+              After her mother's death, Lena finds a jar of salt in the kitchen — one her mother had been filling, grain by grain, for forty years. She does not know what it means. She is afraid to ask.
+            </p>
+          </div>
+          <button class="story-card__btn" data-story="1" data-i18n="stories.readMore">Read Story</button>
+        </article>
+
+        <!-- Story 2 -->
+        <article class="story-card" data-story="2">
+          <div class="story-card__number">02</div>
+          <div class="story-card__body">
+            <span class="story-card__tag" data-i18n="story2.tag">Solitude / Time</span>
+            <h3 class="story-card__title" data-i18n="story2.title">A Cartography of Afternoons</h3>
+            <p class="story-card__excerpt" data-i18n="story2.excerpt">
+              The old clockmaker repairs timepieces nobody comes to collect. He lines them on the shelf anyway — tick by tick, a chorus that keeps him from disappearing entirely.
+            </p>
+          </div>
+          <button class="story-card__btn" data-story="2" data-i18n="stories.readMore">Read Story</button>
+        </article>
+
+        <!-- Story 3 -->
+        <article class="story-card" data-story="3">
+          <div class="story-card__number">03</div>
+          <div class="story-card__body">
+            <span class="story-card__tag" data-i18n="story3.tag">Identity / Migration</span>
+            <h3 class="story-card__title" data-i18n="story3.title">The Language My Hands Remember</h3>
+            <p class="story-card__excerpt" data-i18n="story3.excerpt">
+              Marco crosses the border speaking no English, carrying only a photograph and the way his grandmother taught him to fold dough — a gesture that survives every translation.
+            </p>
+          </div>
+          <button class="story-card__btn" data-story="3" data-i18n="stories.readMore">Read Story</button>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       STORY MODAL
+  ============================================================ -->
+  <div class="modal" id="storyModal" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+    <div class="modal__backdrop" id="modalBackdrop"></div>
+    <div class="modal__panel">
+      <button class="modal__close" id="modalClose" aria-label="Close">&#x2715;</button>
+      <div class="modal__scroll">
+        <span class="modal__tag" id="modalTag"></span>
+        <h2 class="modal__title" id="modalTitle"></h2>
+        <div class="modal__divider"></div>
+        <div class="modal__body" id="modalBody"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ============================================================
+       SCULPTURE
+  ============================================================ -->
+  <section class="section sculpture" id="sculpture">
+    <div class="container">
+      <div class="section__header">
+        <span class="section__label" data-i18n="sculpture.label">Three-Dimensional Work</span>
+        <h2 class="section__title" data-i18n="sculpture.title">Sculpture</h2>
+        <p class="section__subtitle" data-i18n="sculpture.subtitle">
+          Material given intention — stone, bronze, and clay shaped by presence and by absence.
+        </p>
+      </div>
+
+      <div class="sculpture__grid" id="sculptureGrid">
+
+        <figure class="sculpture-item sculpture-item--tall">
+          <div class="sculpture-item__img-wrap">
+            <img
+              src="https://picsum.photos/seed/sculpt1/600/800"
+              alt="Erosion Study No. 3"
+              loading="lazy"
+              class="sculpture-item__img"
+            />
+            <div class="sculpture-item__overlay">
+              <div class="sculpture-item__info">
+                <span class="sculpture-item__year">2023</span>
+                <h3 class="sculpture-item__title" data-i18n="sculpt1.title">Erosion Study No. 3</h3>
+                <p class="sculpture-item__desc"  data-i18n="sculpt1.desc">Carrara marble, 42 × 18 × 14 cm</p>
+              </div>
+            </div>
+          </div>
+        </figure>
+
+        <figure class="sculpture-item">
+          <div class="sculpture-item__img-wrap">
+            <img
+              src="https://picsum.photos/seed/sculpt2/600/500"
+              alt="Threshold"
+              loading="lazy"
+              class="sculpture-item__img"
+            />
+            <div class="sculpture-item__overlay">
+              <div class="sculpture-item__info">
+                <span class="sculpture-item__year">2023</span>
+                <h3 class="sculpture-item__title" data-i18n="sculpt2.title">Threshold</h3>
+                <p class="sculpture-item__desc"  data-i18n="sculpt2.desc">Cast bronze, 28 × 12 × 9 cm</p>
+              </div>
+            </div>
+          </div>
+        </figure>
+
+        <figure class="sculpture-item">
+          <div class="sculpture-item__img-wrap">
+            <img
+              src="https://picsum.photos/seed/sculpt3/600/500"
+              alt="The Hollow Season"
+              loading="lazy"
+              class="sculpture-item__img"
+            />
+            <div class="sculpture-item__overlay">
+              <div class="sculpture-item__info">
+                <span class="sculpture-item__year">2022</span>
+                <h3 class="sculpture-item__title" data-i18n="sculpt3.title">The Hollow Season</h3>
+                <p class="sculpture-item__desc"  data-i18n="sculpt3.desc">Fired clay and resin, 35 × 22 × 16 cm</p>
+              </div>
+            </div>
+          </div>
+        </figure>
+
+        <figure class="sculpture-item sculpture-item--wide">
+          <div class="sculpture-item__img-wrap">
+            <img
+              src="https://picsum.photos/seed/sculpt4/900/500"
+              alt="Confluence"
+              loading="lazy"
+              class="sculpture-item__img"
+            />
+            <div class="sculpture-item__overlay">
+              <div class="sculpture-item__info">
+                <span class="sculpture-item__year">2022</span>
+                <h3 class="sculpture-item__title" data-i18n="sculpt4.title">Confluence</h3>
+                <p class="sculpture-item__desc"  data-i18n="sculpt4.desc">Welded steel and patinated copper, 80 × 45 × 30 cm</p>
+              </div>
+            </div>
+          </div>
+        </figure>
+
+        <figure class="sculpture-item sculpture-item--tall">
+          <div class="sculpture-item__img-wrap">
+            <img
+              src="https://picsum.photos/seed/sculpt5/600/800"
+              alt="Ligature"
+              loading="lazy"
+              class="sculpture-item__img"
+            />
+            <div class="sculpture-item__overlay">
+              <div class="sculpture-item__info">
+                <span class="sculpture-item__year">2021</span>
+                <h3 class="sculpture-item__title" data-i18n="sculpt5.title">Ligature</h3>
+                <p class="sculpture-item__desc"  data-i18n="sculpt5.desc">Limestone and iron wire, 55 × 20 × 18 cm</p>
+              </div>
+            </div>
+          </div>
+        </figure>
+
+        <figure class="sculpture-item">
+          <div class="sculpture-item__img-wrap">
+            <img
+              src="https://picsum.photos/seed/sculpt6/600/500"
+              alt="Nocturne I"
+              loading="lazy"
+              class="sculpture-item__img"
+            />
+            <div class="sculpture-item__overlay">
+              <div class="sculpture-item__info">
+                <span class="sculpture-item__year">2021</span>
+                <h3 class="sculpture-item__title" data-i18n="sculpt6.title">Nocturne I</h3>
+                <p class="sculpture-item__desc"  data-i18n="sculpt6.desc">Black granite, hand-finished, 30 × 15 × 12 cm</p>
+              </div>
+            </div>
+          </div>
+        </figure>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       ABOUT
+  ============================================================ -->
+  <section class="section about" id="about">
+    <div class="container">
+      <div class="about__inner">
+
+        <div class="about__portrait">
+          <div class="about__portrait-frame">
+            <img
+              src="https://picsum.photos/seed/portrait/500/600"
+              alt="Elena Voss"
+              class="about__portrait-img"
+            />
+          </div>
+          <div class="about__portrait-accent"></div>
+        </div>
+
+        <div class="about__text">
+          <span class="section__label" data-i18n="about.label">The Artist</span>
+          <h2 class="section__title" data-i18n="about.title">About Elena</h2>
+          <div class="about__bio">
+            <p data-i18n="about.bio1">
+              Elena Voss was born in Buenos Aires and raised between three languages and two continents. Her writing explores memory, displacement, and the small ceremonies through which people attempt to hold things together.
+            </p>
+            <p data-i18n="about.bio2">
+              Her short fiction has appeared in <em>Granta</em>, <em>The Paris Review</em>, and <em>McSweeney's</em>. Her debut collection, <em>The Salt Jar</em>, was longlisted for the Goldsmiths Prize.
+            </p>
+            <p data-i18n="about.bio3">
+              Parallel to her writing practice, Elena works in stone, bronze, and clay. She studied sculpture at the École des Beaux-Arts in Paris and the Royal College of Art in London. Her work has been exhibited in galleries in Buenos Aires, Barcelona, and New York.
+            </p>
+            <p data-i18n="about.bio4">
+              She currently lives and works in Oaxaca, Mexico.
+            </p>
+          </div>
+
+          <div class="about__awards">
+            <div class="award">
+              <span class="award__year">2024</span>
+              <span class="award__name" data-i18n="award1">Pushcart Prize Nominee</span>
+            </div>
+            <div class="award">
+              <span class="award__year">2023</span>
+              <span class="award__name" data-i18n="award2">Goldsmiths Prize Longlist — <em>The Salt Jar</em></span>
+            </div>
+            <div class="award">
+              <span class="award__year">2022</span>
+              <span class="award__name" data-i18n="award3">Barcelona Sculpture Biennial — Selected Artist</span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       CONTACT
+  ============================================================ -->
+  <section class="section contact" id="contact">
+    <div class="container">
+      <div class="contact__inner">
+        <div class="section__header">
+          <span class="section__label" data-i18n="contact.label">Get in Touch</span>
+          <h2 class="section__title" data-i18n="contact.title">Contact</h2>
+          <p class="section__subtitle" data-i18n="contact.subtitle">
+            For gallery inquiries, rights, commissions, or readings — reach out below.
+          </p>
+        </div>
+
+        <form class="contact__form" id="contactForm" novalidate>
+          <div class="form__row">
+            <div class="form__group">
+              <label class="form__label" for="inputName" data-i18n="contact.name">Name</label>
+              <input type="text"  id="inputName"  class="form__input" autocomplete="name" required />
+            </div>
+            <div class="form__group">
+              <label class="form__label" for="inputEmail" data-i18n="contact.email">Email</label>
+              <input type="email" id="inputEmail" class="form__input" autocomplete="email" required />
+            </div>
+          </div>
+          <div class="form__group">
+            <label class="form__label" for="inputSubject" data-i18n="contact.subject">Subject</label>
+            <input type="text" id="inputSubject" class="form__input" required />
+          </div>
+          <div class="form__group">
+            <label class="form__label" for="inputMessage" data-i18n="contact.message">Message</label>
+            <textarea id="inputMessage" class="form__textarea" rows="5" required></textarea>
+          </div>
+          <button type="submit" class="btn btn--primary btn--full" data-i18n="contact.send">Send Message</button>
+          <p class="form__success" id="formSuccess" data-i18n="contact.success">
+            Thank you — your message has been received.
+          </p>
+        </form>
+
+        <div class="contact__links">
+          <a href="mailto:elena@elenavoss.com" class="contact__link">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
+            elena@elenavoss.com
+          </a>
+          <a href="#" class="contact__link">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg>
+            @elenavoss
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       FOOTER
+  ============================================================ -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer__inner">
+        <p class="footer__name">Elena Voss</p>
+        <p class="footer__copy" data-i18n="footer.copy">
+          &copy; 2026 Elena Voss. All rights reserved.
+        </p>
+        <p class="footer__craft" data-i18n="footer.craft">
+          Words &amp; Stone
+        </p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
