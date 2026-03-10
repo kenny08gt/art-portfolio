@@ -6,8 +6,8 @@
 const translations = {
   en: {
     // Meta
-    'meta.title':       'Elena Voss — Writer & Sculptor',
-    'meta.description': 'Portfolio of Elena Voss — short story writer and sculptor.',
+    'meta.title':       'Alan Hurtarte — Writer & Sculptor',
+    'meta.description': 'Portfolio of Alan Hurtarte — short story writer and sculptor.',
 
     // Nav
     'nav.stories':   'Stories',
@@ -17,7 +17,7 @@ const translations = {
 
     // Hero
     'hero.eyebrow':       'Writer · Sculptor',
-    'hero.tagline':       'Stories carved from silence.\nSculptures breathing with weight.',
+    'hero.tagline':       'A builder who shapes things —\nin code, in words, and in stone.',
     'hero.cta.stories':   'Explore Stories',
     'hero.cta.sculpture': 'View Sculpture',
     'hero.scroll':        'scroll',
@@ -92,19 +92,16 @@ const translations = {
 
     // About
     'about.label': 'The Artist',
-    'about.title': 'About Elena',
-    'about.bio1':  'Elena Voss was born in Buenos Aires and raised between three languages and two continents. Her writing explores memory, displacement, and the small ceremonies through which people attempt to hold things together.',
-    'about.bio2':  'Her short fiction has appeared in <em>Granta</em>, <em>The Paris Review</em>, and <em>McSweeney\'s</em>. Her debut collection, <em>The Salt Jar</em>, was longlisted for the Goldsmiths Prize.',
-    'about.bio3':  'Parallel to her writing practice, Elena works in stone, bronze, and clay. She studied sculpture at the École des Beaux-Arts in Paris and the Royal College of Art in London. Her work has been exhibited in galleries in Buenos Aires, Barcelona, and New York.',
-    'about.bio4':  'She currently lives and works in Oaxaca, Mexico.',
-    'award1': 'Pushcart Prize Nominee',
-    'award2': 'Goldsmiths Prize Longlist — <em>The Salt Jar</em>',
-    'award3': 'Barcelona Sculpture Biennial — Selected Artist',
+    'about.title': 'About Alan',
+    'about.bio1':  'Alan Hurtarte is a Guatemalan software engineer, builder, and creative thinker who blends technology with artistic exploration. With a strong background in full-stack development, he has worked extensively with Laravel, React, and modern AI systems, focusing on creating practical software products and scalable digital businesses.',
+    'about.bio2':  'His work often centers on turning complex ideas into simple, useful tools. Beyond technology, Alan is drawn to creative expression — writing fiction and reflective pieces that explore human experience, structure, and meaning, often with a thoughtful and analytical voice.',
+    'about.bio3':  'He also experiments with sculpture and hands-on artistic projects, working with materials like metal and mixed media to create physical forms that contrast with his digital work.',
+    'about.bio4':  'Whether building software, shaping stories, or crafting objects, Alan approaches every project with curiosity, precision, and a desire to understand how things work — then make them better.',
 
     // Contact
     'contact.label':   'Get in Touch',
     'contact.title':   'Contact',
-    'contact.subtitle':'For gallery inquiries, rights, commissions, or readings — reach out below.',
+    'contact.subtitle':'For commissions, collaborations, or just to say hello — reach out below.',
     'contact.name':    'Name',
     'contact.email':   'Email',
     'contact.subject': 'Subject',
@@ -113,14 +110,14 @@ const translations = {
     'contact.success': 'Thank you — your message has been received.',
 
     // Footer
-    'footer.copy':  '© 2026 Elena Voss. All rights reserved.',
+    'footer.copy':  '© 2026 Alan Hurtarte. All rights reserved.',
     'footer.craft': 'Words & Stone',
   },
 
   es: {
     // Meta
-    'meta.title':       'Elena Voss — Escritora y Escultora',
-    'meta.description': 'Portafolio de Elena Voss — escritora de cuentos y escultora.',
+    'meta.title':       'Alan Hurtarte — Escritor y Escultor',
+    'meta.description': 'Portafolio de Alan Hurtarte — escritor de cuentos y escultor.',
 
     // Nav
     'nav.stories':   'Cuentos',
@@ -129,8 +126,8 @@ const translations = {
     'nav.contact':   'Contacto',
 
     // Hero
-    'hero.eyebrow':       'Escritora · Escultora',
-    'hero.tagline':       'Historias talladas del silencio.\nEsculturas que respiran con peso.',
+    'hero.eyebrow':       'Escritor · Escultor',
+    'hero.tagline':       'Un constructor que da forma a las cosas —\nen código, en palabras y en piedra.',
     'hero.cta.stories':   'Explorar Cuentos',
     'hero.cta.sculpture': 'Ver Escultura',
     'hero.scroll':        'desplazar',
@@ -204,20 +201,17 @@ const translations = {
     'sculpt6.desc':  'Granito negro, acabado a mano, 30 × 15 × 12 cm',
 
     // About
-    'about.label': 'La Artista',
-    'about.title': 'Sobre Elena',
-    'about.bio1':  'Elena Voss nació en Buenos Aires y se crió entre tres idiomas y dos continentes. Su escritura explora la memoria, el desplazamiento y las pequeñas ceremonias mediante las cuales las personas intentan mantener las cosas unidas.',
-    'about.bio2':  'Su ficción corta ha aparecido en <em>Granta</em>, <em>The Paris Review</em> y <em>McSweeney\'s</em>. Su primera colección, <em>El Frasco de Sal</em>, fue incluida en la lista larga del Premio Goldsmiths.',
-    'about.bio3':  'Paralela a su práctica de escritura, Elena trabaja en piedra, bronce y arcilla. Estudió escultura en la École des Beaux-Arts de París y en el Royal College of Art de Londres. Su obra ha sido expuesta en galerías de Buenos Aires, Barcelona y Nueva York.',
-    'about.bio4':  'Actualmente vive y trabaja en Oaxaca, México.',
-    'award1': 'Candidata al Premio Pushcart',
-    'award2': 'Lista larga del Premio Goldsmiths — <em>El Frasco de Sal</em>',
-    'award3': 'Bienal de Escultura de Barcelona — Artista Seleccionada',
+    'about.label': 'El Artista',
+    'about.title': 'Sobre Alan',
+    'about.bio1':  'Alan Hurtarte es un ingeniero de software guatemalteco, constructor y pensador creativo que combina la tecnología con la exploración artística. Con una sólida formación en desarrollo full-stack, ha trabajado extensamente con herramientas como Laravel, React y sistemas modernos de IA, enfocándose en crear productos de software prácticos y negocios digitales escalables.',
+    'about.bio2':  'Su trabajo a menudo se centra en convertir ideas complejas en herramientas simples y útiles. Más allá de la tecnología, Alan se inclina hacia la expresión creativa — escribe ficción y piezas reflexivas que exploran la experiencia humana, la estructura y el significado, con una voz reflexiva y analítica.',
+    'about.bio3':  'También experimenta con la escultura y proyectos artísticos prácticos, trabajando con materiales como metal y medios mixtos para crear formas físicas que contrastan con su trabajo digital.',
+    'about.bio4':  'Ya sea construyendo software, dando forma a historias o creando objetos, Alan aborda cada proyecto con curiosidad, precisión y el deseo de entender cómo funcionan las cosas — para luego mejorarlas.',
 
     // Contact
     'contact.label':   'Ponerse en Contacto',
     'contact.title':   'Contacto',
-    'contact.subtitle':'Para consultas de galerías, derechos, encargos o lecturas — escríbeme abajo.',
+    'contact.subtitle':'Para comisiones, colaboraciones o simplemente saludar — escríbeme abajo.',
     'contact.name':    'Nombre',
     'contact.email':   'Correo Electrónico',
     'contact.subject': 'Asunto',
@@ -226,7 +220,7 @@ const translations = {
     'contact.success': 'Gracias — tu mensaje ha sido recibido.',
 
     // Footer
-    'footer.copy':  '© 2026 Elena Voss. Todos los derechos reservados.',
+    'footer.copy':  '© 2026 Alan Hurtarte. Todos los derechos reservados.',
     'footer.craft': 'Palabras y Piedra',
   }
 };
