@@ -432,19 +432,31 @@ contactForm.addEventListener('submit', e => {
 
   if (!valid) return;
 
-  // Simulate send
   const btn = contactForm.querySelector('button[type="submit"]');
   btn.disabled = true;
   btn.style.opacity = '0.6';
 
-  setTimeout(() => {
-    formSuccess.classList.add('visible');
-    contactForm.reset();
+  fetch(contactForm.action, {
+    method: 'POST',
+    body: new FormData(contactForm),
+    headers: { 'Accept': 'application/json' }
+  })
+  .then(res => {
+    if (res.ok) {
+      formSuccess.classList.add('visible');
+      contactForm.reset();
+      setTimeout(() => formSuccess.classList.remove('visible'), 5000);
+    } else {
+      alert('Something went wrong. Please email alan.hurtarte@gmail.com directly.');
+    }
+  })
+  .catch(() => {
+    alert('Something went wrong. Please email alan.hurtarte@gmail.com directly.');
+  })
+  .finally(() => {
     btn.disabled = false;
     btn.style.opacity = '';
-
-    setTimeout(() => formSuccess.classList.remove('visible'), 5000);
-  }, 800);
+  });
 });
 
 // Remove error styling on input
