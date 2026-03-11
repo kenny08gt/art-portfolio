@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Admin — Alan Hurtarte</title>
+  <link rel="stylesheet" href="/admin/admin.css" />
+</head>
+<body>
+
+  <!-- ── LOGIN ─────────────────────────────────────────────── -->
+  <div class="login-screen" id="loginScreen">
+    <div class="login-card">
+      <div class="login-logo">AH</div>
+      <h1 class="login-title">Portfolio Admin</h1>
+      <form id="loginForm" autocomplete="off">
+        <input
+          type="password"
+          id="loginPassword"
+          class="login-input"
+          placeholder="Password"
+          autofocus
+          required
+        />
+        <button type="submit" class="btn-primary">Sign In</button>
+        <p class="login-error" id="loginError"></p>
+      </form>
+    </div>
+  </div>
+
+  <!-- ── DASHBOARD ─────────────────────────────────────────── -->
+  <div class="dashboard" id="dashboard" hidden>
+
+    <header class="dash-header">
+      <span class="dash-logo">AH Admin</span>
+      <button class="btn-logout" id="logoutBtn">Logout</button>
+    </header>
+
+    <nav class="dash-tabs" id="dashTabs">
+      <button class="tab active" data-tab="hero">Hero</button>
+      <button class="tab" data-tab="stories">Stories</button>
+      <button class="tab" data-tab="sculptures">Sculptures</button>
+      <button class="tab" data-tab="about">About</button>
+      <button class="tab" data-tab="images">Images</button>
+    </nav>
+
+    <main class="dash-content">
+
+      <!-- HERO -->
+      <section class="tab-panel active" id="tab-hero">
+        <div class="panel-header">
+          <h2>Hero Section</h2>
+          <button class="btn-save" data-section="hero">Save Hero</button>
+        </div>
+        <div class="field-row">
+          <div class="field-group">
+            <label>Tagline (EN)</label>
+            <textarea id="hero-tagline-en" rows="3" placeholder="Use \n for line breaks"></textarea>
+          </div>
+          <div class="field-group">
+            <label>Tagline (ES)</label>
+            <textarea id="hero-tagline-es" rows="3" placeholder="Usa \n para saltos de línea"></textarea>
+          </div>
+        </div>
+      </section>
+
+      <!-- STORIES -->
+      <section class="tab-panel" id="tab-stories">
+        <div class="panel-header">
+          <h2>Stories</h2>
+          <button class="btn-add" id="addStoryBtn">+ Add Story</button>
+        </div>
+        <div id="storiesList" class="item-list"></div>
+
+        <div class="edit-panel" id="storyEditPanel" hidden>
+          <h3 id="storyEditHeading">Edit Story</h3>
+          <input type="hidden" id="storyEditId" />
+          <div class="field-row">
+            <div class="field-group">
+              <label>Tag (EN) <small>e.g. Memory / Loss</small></label>
+              <input type="text" id="story-tag-en" />
+            </div>
+            <div class="field-group">
+              <label>Tag (ES)</label>
+              <input type="text" id="story-tag-es" />
+            </div>
+          </div>
+          <div class="field-row">
+            <div class="field-group">
+              <label>Title (EN)</label>
+              <input type="text" id="story-title-en" />
+            </div>
+            <div class="field-group">
+              <label>Title (ES)</label>
+              <input type="text" id="story-title-es" />
+            </div>
+          </div>
+          <div class="field-row">
+            <div class="field-group">
+              <label>Excerpt (EN)</label>
+              <textarea id="story-excerpt-en" rows="3"></textarea>
+            </div>
+            <div class="field-group">
+              <label>Excerpt (ES)</label>
+              <textarea id="story-excerpt-es" rows="3"></textarea>
+            </div>
+          </div>
+          <div class="field-row">
+            <div class="field-group">
+              <label>Full Text HTML (EN)</label>
+              <textarea id="story-fulltext-en" rows="12"></textarea>
+            </div>
+            <div class="field-group">
+              <label>Full Text HTML (ES)</label>
+              <textarea id="story-fulltext-es" rows="12"></textarea>
+            </div>
+          </div>
+          <div class="edit-actions">
+            <button class="btn-save" id="storyEditSave">Save Story</button>
+            <button class="btn-cancel" id="storyEditCancel">Cancel</button>
+          </div>
+        </div>
+      </section>
+
+      <!-- SCULPTURES -->
+      <section class="tab-panel" id="tab-sculptures">
+        <div class="panel-header">
+          <h2>Sculptures</h2>
+          <button class="btn-add" id="addSculptureBtn">+ Add Sculpture</button>
+        </div>
+        <div id="sculpturesList" class="item-list"></div>
+
+        <div class="edit-panel" id="sculptureEditPanel" hidden>
+          <h3 id="sculptureEditHeading">Edit Sculpture</h3>
+          <input type="hidden" id="sculptureEditId" />
+          <div class="field-row">
+            <div class="field-group">
+              <label>Title (EN)</label>
+              <input type="text" id="sculpture-title-en" />
+            </div>
+            <div class="field-group">
+              <label>Title (ES)</label>
+              <input type="text" id="sculpture-title-es" />
+            </div>
+          </div>
+          <div class="field-row">
+            <div class="field-group">
+              <label>Description (EN)</label>
+              <input type="text" id="sculpture-desc-en" />
+            </div>
+            <div class="field-group">
+              <label>Description (ES)</label>
+              <input type="text" id="sculpture-desc-es" />
+            </div>
+          </div>
+          <div class="field-row">
+            <div class="field-group">
+              <label>Year</label>
+              <input type="text" id="sculpture-year" placeholder="2024" />
+            </div>
+            <div class="field-group">
+              <label>Layout modifier</label>
+              <select id="sculpture-modifier">
+                <option value="">Standard</option>
+                <option value="sculpture-item--tall">Tall</option>
+                <option value="sculpture-item--wide">Wide</option>
+              </select>
+            </div>
+          </div>
+          <div class="field-group">
+            <label>Image URL</label>
+            <input type="text" id="sculpture-image" placeholder="/uploads/filename.jpg" />
+            <p class="field-hint">Upload an image in the <strong>Images</strong> tab, then paste the URL here.</p>
+          </div>
+          <div class="edit-actions">
+            <button class="btn-save" id="sculptureEditSave">Save Sculpture</button>
+            <button class="btn-cancel" id="sculptureEditCancel">Cancel</button>
+          </div>
+        </div>
+      </section>
+
+      <!-- ABOUT -->
+      <section class="tab-panel" id="tab-about">
+        <div class="panel-header">
+          <h2>About Section</h2>
+          <button class="btn-save" data-section="about">Save About</button>
+        </div>
+        <div id="aboutBioFields"></div>
+        <button class="btn-add" id="addBioParaBtn" style="margin-top:1rem">+ Add Paragraph</button>
+      </section>
+
+      <!-- IMAGES -->
+      <section class="tab-panel" id="tab-images">
+        <div class="panel-header">
+          <h2>Uploaded Images</h2>
+        </div>
+        <div class="upload-area" id="uploadArea">
+          <p>Drag &amp; drop images here, or</p>
+          <label class="btn-upload-label">
+            Choose Files
+            <input type="file" id="fileInput" accept="image/jpeg,image/png,image/webp" multiple hidden />
+          </label>
+          <p class="upload-hint">JPG, PNG, WebP · Max 5 MB per file</p>
+        </div>
+        <div class="images-grid" id="imagesGrid"></div>
+      </section>
+
+    </main>
+
+    <div class="toast" id="toast"></div>
+  </div>
+
+  <script src="/admin/admin.js"></script>
+</body>
+</html>
