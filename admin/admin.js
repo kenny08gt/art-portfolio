@@ -34,10 +34,6 @@ let content = {};
 
 /* ── Init ──────────────────────────────────────────────────────────────────── */
 (function init() {
-  // Both screens start hidden; we reveal exactly one below
-  document.getElementById('loginScreen').setAttribute('hidden', '');
-  document.getElementById('dashboard').setAttribute('hidden', '');
-
   if (getToken()) {
     showDashboard();
   } else {

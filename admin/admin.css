@@ -1,6 +1,9 @@
 /* ── Reset & Base ─────────────────────────────────────────────────────────── */
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
+/* Ensure [hidden] always wins over display:flex/block on any element */
+[hidden] { display: none !important; }
+
 :root {
   --bg:        #0f0f11;
   --surface:   #19191f;
