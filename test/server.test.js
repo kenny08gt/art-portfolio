@@ -5,9 +5,22 @@
  */
 
 const http    = require('http');
-const fs      = require('fs');
-const path    = require('path');
+const net     = require('net');
 const bcrypt  = require('bcryptjs');
+
+// ── pick a random free port so tests never conflict with the running server ───
+function freePort() {
+  return new Promise((resolve, reject) => {
+    const srv = net.createServer();
+    srv.listen(0, '127.0.0.1', () => {
+      const { port } = srv.address();
+      srv.close(() => resolve(port));
+    });
+    srv.on('error', reject);
+  });
+}
+
+let TEST_PORT;
 
 // ── helpers ───────────────────────────────────────────────────────────────────
 function request(opts, body) {
@@ -30,20 +43,20 @@ function post(path, body, token) {
   const payload = JSON.stringify(body);
   const headers = { 'Content-Type': 'application/json', 'Content-Length': Buffer.byteLength(payload) };
   if (token) headers['Authorization'] = 'Bearer ' + token;
-  return request({ hostname: '127.0.0.1', port: 3081, path, method: 'POST', headers }, payload);
+  return request({ hostname: '127.0.0.1', port: TEST_PORT, path, method: 'POST', headers }, payload);
 }
 
 function get(path, token) {
   const headers = {};
   if (token) headers['Authorization'] = 'Bearer ' + token;
-  return request({ hostname: '127.0.0.1', port: 3081, path, method: 'GET', headers });
+  return request({ hostname: '127.0.0.1', port: TEST_PORT, path, method: 'GET', headers });
 }
 
 function put(path, body, token) {
   const payload = JSON.stringify(body);
   const headers = { 'Content-Type': 'application/json', 'Content-Length': Buffer.byteLength(payload) };
   if (token) headers['Authorization'] = 'Bearer ' + token;
-  return request({ hostname: '127.0.0.1', port: 3081, path, method: 'PUT', headers }, payload);
+  return request({ hostname: '127.0.0.1', port: TEST_PORT, path, method: 'PUT', headers }, payload);
 }
 
 // ── test runner ───────────────────────────────────────────────────────────────
@@ -62,10 +75,12 @@ function assert(desc, condition, detail = '') {
 
 // ── setup: inject test env vars ───────────────────────────────────────────────
 async function setup() {
+  TEST_PORT = await freePort();
+
   const hash = await bcrypt.hash('testpass123', 10);
   process.env.ADMIN_PASSWORD_HASH = hash;
   process.env.JWT_SECRET           = 'test_secret_xyz_' + Date.now();
-  process.env.PORT                 = '3081';
+  process.env.PORT                 = String(TEST_PORT);
 
   // Silence server startup log
   const origLog = console.log;
