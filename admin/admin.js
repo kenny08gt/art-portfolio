@@ -38,6 +38,7 @@ let content = {};
     showDashboard();
   } else {
     document.getElementById('loginScreen').removeAttribute('hidden');
+    document.getElementById('loginPassword').focus();
   }
 })();
 

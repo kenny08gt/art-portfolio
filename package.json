@@ -6,6 +6,9 @@
   "scripts": {
     "start": "node server.js",
     "test": "node test/server.test.js",
+    "test:ui": "playwright test",
+    "test:ui:headed": "playwright test --headed",
+    "test:all": "node test/server.test.js && playwright test",
     "setup-password": "node -e \"const bcrypt=require('bcryptjs'); const p=process.argv[1]; bcrypt.hash(p,12).then(h=>console.log('ADMIN_PASSWORD_HASH='+h));\" --"
   },
   "dependencies": {
@@ -16,5 +19,8 @@
     "express-rate-limit": "^7.3.1",
     "jsonwebtoken": "^9.0.2",
     "multer": "^1.4.5-lts.1"
+  },
+  "devDependencies": {
+    "@playwright/test": "^1.58.2"
   }
 }
