@@ -169,15 +169,43 @@ npm install -g pm2
 
 ## Deploying Updates
 
+**Automatic (GitHub Actions):** just `git push origin main` — tests run, then the VPS is updated automatically.
+
+**Manual fallback:** SSH into the VPS and run `./deploy.sh`.
+
+---
+
+## GitHub Actions CI/CD
+
+File: `.github/workflows/deploy.yml`
+
+**Pipeline on every push to `main`:**
+1. `npm test` — Node.js API tests
+2. `npm run test:ui` — Playwright browser tests (headless Chromium)
+3. If both pass: SSH into VPS → `git reset --hard origin/main` → `npm ci --omit=dev` → `pm2 restart`
+
+PRs run the test jobs only (no deploy).
+
+**Required GitHub Secrets** — set at `Settings → Secrets and variables → Actions`:
+
+| Secret | Value |
+|--------|-------|
+| `VPS_HOST` | Vultr VPS IP address |
+| `VPS_USER` | SSH username (e.g. `root`) |
+| `VPS_SSH_KEY` | Private SSH key content (the key whose public half is in `~/.ssh/authorized_keys` on the VPS) |
+
+**One-time setup to add your SSH key:**
 ```bash
-# On your local machine — push your changes:
-git push origin main
-
-# On the VPS:
-./deploy.sh
+# On your local machine — print the private key to paste into GitHub
+cat ~/.ssh/id_ed25519   # or id_rsa, whichever key has access to the VPS
 ```
+Go to `https://github.com/kenny08gt/art-portfolio/settings/secrets/actions` and add the three secrets above.
 
-The deploy script:
+---
+
+## deploy.sh (manual deploy script)
+
+The script:
 1. `git reset --hard origin/main` — pulls latest code
 2. Checks `.env` exists
 3. `npm ci --omit=dev` — installs production dependencies

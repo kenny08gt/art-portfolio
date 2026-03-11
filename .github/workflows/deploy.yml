@@ -1,0 +1,81 @@
+name: CI / Deploy
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+jobs:
+  # ── 1. Run all tests ────────────────────────────────────────────────────────
+  test:
+    name: Test
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'npm'
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: API tests
+        run: npm test
+
+      - name: Install Playwright + Chromium
+        run: npx playwright install chromium --with-deps
+
+      - name: Browser tests
+        run: npm run test:ui
+
+      - name: Upload test artifacts on failure
+        if: failure()
+        uses: actions/upload-artifact@v4
+        with:
+          name: playwright-failures
+          path: test-results/
+          retention-days: 7
+
+  # ── 2. Deploy to VPS (main branch only, after tests pass) ──────────────────
+  deploy:
+    name: Deploy to VPS
+    needs: test
+    if: github.ref == 'refs/heads/main' && github.event_name == 'push'
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+
+    steps:
+      - name: Deploy via SSH
+        uses: appleboy/ssh-action@v1.0.3
+        with:
+          host: ${{ secrets.VPS_HOST }}
+          username: ${{ secrets.VPS_USER }}
+          key: ${{ secrets.VPS_SSH_KEY }}
+          script: |
+            set -e
+
+            cd /var/www/art-portfolio
+
+            echo "── Pulling latest code ──"
+            git fetch --all
+            git reset --hard origin/main
+
+            echo "── Installing dependencies ──"
+            npm ci --omit=dev
+
+            echo "── Ensuring uploads dir exists ──"
+            mkdir -p uploads
+
+            echo "── Restarting app ──"
+            pm2 describe art-portfolio-cms > /dev/null 2>&1 \
+              && pm2 restart art-portfolio-cms \
+              || pm2 start server.js --name art-portfolio-cms --cwd /var/www/art-portfolio
+
+            pm2 save
+
+            echo "── Deploy complete: $(date) ──"
