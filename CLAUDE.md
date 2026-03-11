@@ -9,8 +9,8 @@ This file documents the project architecture, conventions, and workflows for Cla
 A bilingual (EN/ES) static portfolio site for Alan Hurtarte (writer & sculptor), extended with a lightweight Node.js CMS backend so content can be edited without touching code.
 
 **Live site:** served by nginx as static files
-**Admin panel:** `/admin` — proxied to Node.js on port 3000
-**API:** `/api/*` — proxied to Node.js on port 3000
+**Admin panel:** `/admin` — proxied to Node.js on port 4000
+**API:** `/api/*` — proxied to Node.js on port 4000
 
 ---
 
@@ -191,7 +191,7 @@ The deploy script:
 ## nginx Config
 
 ```nginx
-upstream nodejs { server 127.0.0.1:3000; }
+upstream nodejs { server 127.0.0.1:4000; }
 
 location /api/   { proxy_pass http://nodejs; }
 location /admin  { proxy_pass http://nodejs; }
