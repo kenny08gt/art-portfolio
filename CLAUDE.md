@@ -9,8 +9,8 @@ This file documents the project architecture, conventions, and workflows for Cla
 A bilingual (EN/ES) static portfolio site for Alan Hurtarte (writer & sculptor), extended with a lightweight Node.js CMS backend so content can be edited without touching code.
 
 **Live site:** served by nginx as static files
-**Admin panel:** `/admin` — proxied to Node.js on port 4000
-**API:** `/api/*` — proxied to Node.js on port 4000
+**Admin panel:** `/admin` — proxied to Node.js on port 3081
+**API:** `/api/*` — proxied to Node.js on port 3081
 
 ---
 
@@ -190,13 +190,37 @@ The deploy script:
 
 ## nginx Config
 
-```nginx
-upstream nodejs { server 127.0.0.1:4000; }
+- **Domain:** `art.alanhurtarte.com`
+- **Node port:** `3081`
+- **SSL:** managed by Certbot — do not manually edit the SSL blocks
+- **Config file on server:** `/etc/nginx/sites-available/art-portfolio`
 
-location /api/   { proxy_pass http://nodejs; }
-location /admin  { proxy_pass http://nodejs; }
-location /uploads/ { alias /var/www/art-portfolio/uploads/; }
-location /       { try_files $uri $uri/ /index.html; }
+The repo's `nginx.conf` is kept in sync as documentation and is used only on **first deploy** (when the file doesn't exist yet). Subsequent deploys skip it to avoid clobbering certbot's SSL blocks.
+
+```nginx
+upstream nodejs { server 127.0.0.1:3081; }
+
+# HTTPS server (SSL managed by Certbot)
+server {
+    server_name art.alanhurtarte.com;
+    listen 443 ssl;
+    ssl_certificate     /etc/letsencrypt/live/art.alanhurtarte.com/fullchain.pem;
+    ssl_certificate_key /etc/letsencrypt/live/art.alanhurtarte.com/privkey.pem;
+    include /etc/letsencrypt/options-ssl-nginx.conf;
+    ssl_dhparam /etc/letsencrypt/ssl-dhparams.pem;
+
+    location /api/    { proxy_pass http://nodejs; ... }
+    location /admin   { proxy_pass http://nodejs; ... }
+    location /uploads/{ alias /var/www/art-portfolio/uploads/; }
+    location /        { try_files $uri $uri/ /index.html; }
+}
+
+# HTTP → HTTPS redirect (managed by Certbot)
+server {
+    listen 80;
+    server_name art.alanhurtarte.com;
+    return 301 https://$host$request_uri;
+}
 ```
 
 Static files (HTML/CSS/JS) are served directly by nginx — Node only handles `/api/` and `/admin`.

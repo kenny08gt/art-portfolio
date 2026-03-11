@@ -30,20 +30,20 @@ function post(path, body, token) {
   const payload = JSON.stringify(body);
   const headers = { 'Content-Type': 'application/json', 'Content-Length': Buffer.byteLength(payload) };
   if (token) headers['Authorization'] = 'Bearer ' + token;
-  return request({ hostname: '127.0.0.1', port: 4000, path, method: 'POST', headers }, payload);
+  return request({ hostname: '127.0.0.1', port: 3081, path, method: 'POST', headers }, payload);
 }
 
 function get(path, token) {
   const headers = {};
   if (token) headers['Authorization'] = 'Bearer ' + token;
-  return request({ hostname: '127.0.0.1', port: 4000, path, method: 'GET', headers });
+  return request({ hostname: '127.0.0.1', port: 3081, path, method: 'GET', headers });
 }
 
 function put(path, body, token) {
   const payload = JSON.stringify(body);
   const headers = { 'Content-Type': 'application/json', 'Content-Length': Buffer.byteLength(payload) };
   if (token) headers['Authorization'] = 'Bearer ' + token;
-  return request({ hostname: '127.0.0.1', port: 4000, path, method: 'PUT', headers }, payload);
+  return request({ hostname: '127.0.0.1', port: 3081, path, method: 'PUT', headers }, payload);
 }
 
 // ── test runner ───────────────────────────────────────────────────────────────
@@ -65,7 +65,7 @@ async function setup() {
   const hash = await bcrypt.hash('testpass123', 10);
   process.env.ADMIN_PASSWORD_HASH = hash;
   process.env.JWT_SECRET           = 'test_secret_xyz_' + Date.now();
-  process.env.PORT                 = '4000';
+  process.env.PORT                 = '3081';
 
   // Silence server startup log
   const origLog = console.log;

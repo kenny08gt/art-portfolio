@@ -11,7 +11,7 @@ const fs           = require('fs');
 require('dotenv').config();
 
 const app         = express();
-const PORT        = process.env.PORT || 4000;
+const PORT        = process.env.PORT || 3081;
 const CONTENT_FILE = path.join(__dirname, 'content.json');
 const UPLOADS_DIR  = path.join(__dirname, 'uploads');
 
