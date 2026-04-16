@@ -221,7 +221,7 @@ document.getElementById('storyEditSave').addEventListener('click', async () => {
     content.stories.push(story);
   }
 
-  await saveAll();
+  await saveSection('stories');
   document.getElementById('storyEditPanel').setAttribute('hidden', '');
   populateStories();
 });
@@ -229,7 +229,7 @@ document.getElementById('storyEditSave').addEventListener('click', async () => {
 async function deleteStory(id) {
   if (!confirm('Delete this story?')) return;
   content.stories = (content.stories || []).filter(s => s.id !== id);
-  await saveAll();
+  await saveSection('stories');
   populateStories();
 }
 
@@ -319,7 +319,7 @@ document.getElementById('sculptureEditSave').addEventListener('click', async () 
     content.sculptures.push(s);
   }
 
-  await saveAll();
+  await saveSection('sculptures');
   document.getElementById('sculptureEditPanel').setAttribute('hidden', '');
   populateSculptures();
 });
@@ -327,7 +327,7 @@ document.getElementById('sculptureEditSave').addEventListener('click', async () 
 async function deleteSculpture(id) {
   if (!confirm('Delete this sculpture?')) return;
   content.sculptures = (content.sculptures || []).filter(s => s.id !== id);
-  await saveAll();
+  await saveSection('sculptures');
   populateSculptures();
 }
 

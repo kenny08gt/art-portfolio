@@ -72,6 +72,7 @@ app.post('/api/auth/login', loginLimiter, async (req, res) => {
 app.get('/api/content', (_req, res) => {
   try {
     const content = JSON.parse(fs.readFileSync(CONTENT_FILE, 'utf8'));
+    res.set('Cache-Control', 'no-store');
     res.json(content);
   } catch {
     res.status(500).json({ error: 'Could not read content' });
